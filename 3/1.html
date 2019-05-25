@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>1</title>
+    <script type="text/javascript">
+      function Calculator(num){
+        this.number=num
+      }
+      Calculator.prototype.add = function (n) {
+        this.number=this.number+n
+        return this
+      };
+      Calculator.prototype.sub = function (n) {
+        this.number=this.number-n
+        return this
+      }
+      Calculator.prototype.getAnswer = function (){
+          return this.number
+      }
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>
