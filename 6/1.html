@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>1</title>
+    <script src="angular/angular.min.js">
+    </script>
+
+    <script type="text/javascript">
+    var module = angular.module("app",[])
+    module.controller("control",function($scope){
+
+    })
+    </script>
+  </head>
+  <body ng-app="app" ng-controller="control">
+    <form class="" action="index.html" method="post">
+      <input type="checkbox" ng-model="checked">
+      <div ng-show="checked">
+        <input type="text" name="changes">
+        <input type="submit" value="submit">
+      </div>
+    </form>
+  </body>
+</html>
