@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <script src="angular/angular.min.js">
+
+  </script>
+  <script type="text/javascript">
+      var myModule = angular.module('app',[])
+      myModule.controller("control",function($scope){
+        $scope.company="google"
+        $scope.name=""
+        $scope.address=""
+        $scope.form={
+          name:"",
+          address:"",
+          company:""
+        }
+        $scope.submit=function(){
+          $scope.name=$scope.form.name
+          $scope.address=$scope.form.address
+          $scope.form.name=""
+          $scope.form.address=""
+
+        }
+      })
+  </script>
+  <body ng-app="app">
+    <div ng-controller="control">
+      <form ng-submit="submit()">
+        <input type="text" name="name" ng-model="form.name">
+        <input type="text" name="address" ng-model="form.address">
+        <input type="text" name="company" ng-model="form.company">
+        <input type="submit" value="change">
+      </form>
+      <div>
+        <p>{{::company}}</p>
+        <p >{{name}}</p>
+        <p>{{address}}</p>
+      </div>
+    </div>
+  </body>
+</html>
