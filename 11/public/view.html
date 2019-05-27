@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>view</title>
+  </head>
+  <script src="angular/angular.min.js">
+  </script>
+  <script type="text/javascript">
+  var module = angular.module("app",[])
+  module.controller("control",function($scope,$http){
+    $scope.data=[]
+    $scope.viewit=false
+    $scope.getData=function(){
+      $http({
+        method:"GET",
+        url:"getData"
+      }).then(function success(response){
+        $scope.data=response.data
+        console.log(response)
+        $scope.viewit=true
+        console.log($scope.viewit)
+      },function error(response){
+        console.log(response)
+        console.log("some error")
+      })
+    }
+  })
+  </script>
+  <body ng-app="app" ng-controller="control" data-ng-init="getData()">
+    <div ng-if="viewit">
+
+    </div>
+    <div ng-repeat="d in data" ng-if="viewit">
+      {{d.name}}
+    </div>
+  </body>
+</html>

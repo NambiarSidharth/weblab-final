@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>insert</title>
+    <script src="angular/angular.min.js">
+
+    </script>
+    <script type="text/javascript">
+      var module = angular.module('app',[])
+      module.controller('control',function($scope,$http){
+        $scope.name=""
+        $scope.attendance=100
+        $scope.success=""
+        $scope.submit=function(){
+          $http({
+            method:'POST',
+            url:'addData',
+            data:{
+              name:$scope.name,
+              attendance:$scope.attendance
+            }
+          }).then(function successCallback(response){
+            $scope.success="done"
+          },function errorCallback(response){
+            $scope.success="not done"
+          })
+        }
+      })
+    </script>
+  </head>
+  <body ng-app="app" ng-controller="control">
+  <form ng-submit="submit()">
+    <input type="text" name="name" ng-model="name">
+    <input type="number" name="attendance" ng-model="attendance">
+    <input type="submit" value="submit" >
+  </form>
+  <p ng-bind="success"></p>
+  </body>
+</html>
